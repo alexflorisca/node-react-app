@@ -9,7 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "node-sass app/scss/style.scss public/css/style.css --output-style=compressed",
     "build:js": "webpack -p",
-    "build": "npm run build:css && npm run build:js"
+    "build": "npm run build:css && npm run build:js",
+    "dev:css": "watch 'node-sass app/scss/style.scss public/css/style.css --output-style=expanded --source-map=true' app/scss",
+    "dev:js": "watch 'webpack -d' app/js",
+    "dev": "parallelshell 'npm run dev:css' 'npm run dev:js'"
   },
   "author": "",
   "license": "ISC",
@@ -25,5 +28,7 @@
     "morgan": "^1.6.1"
   },
   "devDependencies": {
+    "parallelshell": "^2.0.0",
+    "watch": "^0.16.0"
   }
 }

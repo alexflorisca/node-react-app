@@ -9,7 +9,7 @@ let React =                 require('react'),
 class InstitutionBooks extends React.Component {
     constructor() {
         super();
-
+        console.log("Main.jsx");
         this.state = {
             institution: '',
             books: []
